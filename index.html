@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You, Sneha ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    color:#fff;
+    background:
+        radial-gradient(circle at 50% 20%,#633b91 0%,transparent 35%),
+        radial-gradient(circle at 10% 80%,#43266d 0%,transparent 35%),
+        linear-gradient(145deg,#10091c,#241137,#32134d,#160b25);
+}
+
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
+.moon{
+    position:absolute;
+    width:230px;
+    height:230px;
+    border-radius:50%;
+    background:rgba(225,205,255,.08);
+    box-shadow:0 0 70px rgba(215,175,255,.12),0 0 140px rgba(190,130,255,.08);
+    top:-70px;
+    right:-60px;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:#fff;
+    border-radius:50%;
+    opacity:.45;
+    animation:twinkle 4s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.15;transform:scale(.7)}
+    50%{opacity:.8;transform:scale(1.5)}
+}
+
+.lotus{
+    position:absolute;
+    opacity:.08;
+    filter:blur(.3px);
+}
+
+.lotus svg{width:100%;height:100%}
+
+.lotus.one{
+    width:260px;
+    height:180px;
+    left:-90px;
+    bottom:8%;
+    transform:rotate(-12deg);
+}
+
+.lotus.two{
+    width:310px;
+    height:200px;
+    right:-110px;
+    top:34%;
+    transform:rotate(13deg);
+}
+
+.heart{
+    position:fixed;
+    bottom:-40px;
+    color:#e9b8ff;
+    font-size:18px;
+    opacity:0;
+    z-index:2;
+    pointer-events:none;
+    animation:floatHeart linear forwards;
+    text-shadow:0 0 15px rgba(230,170,255,.7);
+}
+
+@keyframes floatHeart{
+    0%{transform:translateY(0) scale(.7) rotate(0);opacity:0}
+    15%{opacity:.65}
+    80%{opacity:.3}
+    100%{
+        transform:translateY(-115vh) translateX(var(--drift)) scale(1.25) rotate(25deg);
+        opacity:0
+    }
+}
+
+/* OPENING */
+
+#opening{
+    position:relative;
+    z-index:5;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+    text-align:center;
+    transition:opacity 1.2s ease,transform 1.2s ease;
+}
+
+.opening-box{width:100%;max-width:390px}
+
+.small-title{
+    font-family:"Playfair Display",serif;
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#d8bce9;
+    margin-bottom:25px;
+}
+
+.opening-box h1{
+    font-family:"Caveat",cursive;
+    font-size:68px;
+    font-weight:500;
+    line-height:1;
+    color:#fff;
+    text-shadow:0 0 30px rgba(222,172,255,.25);
+}
+
+.open-heart{
+    font-size:30px;
+    color:#e4a9ff;
+    margin:25px 0;
+    animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1);opacity:.7}
+    50%{transform:scale(1.18);opacity:1}
+}
+
+.opening-box .sub{
+    font-family:"Playfair Display",serif;
+    font-style:italic;
+    color:#cbb9d5;
+    font-size:14px;
+    line-height:1.8;
+    margin-top:22px;
+}
+
+.open-button{
+    margin-top:28px;
+    padding:14px 30px;
+    border:1px solid rgba(235,190,255,.45);
+    border-radius:40px;
+    color:white;
+    background:rgba(255,255,255,.06);
+    font-family:"Playfair Display",serif;
+    font-size:13px;
+    backdrop-filter:blur(10px);
+    cursor:pointer;
+    transition:.4s;
+}
+
+.open-button:hover{
+    background:rgba(210,150,255,.18);
+    box-shadow:0 0 30px rgba(205,150,255,.18);
+    transform:translateY(-3px);
+}
+
+/* LETTER */
+
+#letter{
+    display:none;
+    position:relative;
+    z-index:3;
+    max-width:760px;
+    margin:auto;
+    padding:70px 24px 100px;
+    opacity:0;
+    transform:translateY(35px);
+    transition:opacity 1.5s ease,transform 1.5s ease;
+}
+
+.letter-paper{
+    position:relative;
+    padding:45px 25px 55px;
+    border-radius:25px;
+    background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+    border:1px solid rgba(240,210,255,.13);
+    box-shadow:0 30px 100px rgba(0,0,0,.35),inset 0 0 50px rgba(255,255,255,.015);
+    backdrop-filter:blur(12px);
+}
+
+.letter-top{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.to{
+    font-family:"Playfair Display",serif;
+    font-size:10px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#c8a5db;
+}
+
+.letter-top h2{
+    margin-top:15px;
+    font-family:"Caveat",cursive;
+    font-size:48px;
+    font-weight:500;
+}
+
+.divider{
+    width:55px;
+    height:1px;
+    background:#b77bdd;
+    margin:23px auto;
+}
+
+.letter-text{
+    font-family:"Caveat",cursive;
+    font-size:24px;
+    line-height:1.72;
+    color:#f4eaf7;
+}
+
+.letter-text p{margin-bottom:27px}
+
+.important{color:#e2aaff}
+
+.center{
+    text-align:center;
+    margin:48px 0;
+}
+
+.big{
+    font-size:31px;
+    line-height:1.5;
+    color:#fff;
+}
+
+.italic{font-style:italic}
+
+.emotional{
+    margin:65px -5px;
+    padding:45px 20px;
+    text-align:center;
+    border-top:1px solid rgba(221,177,245,.12);
+    border-bottom:1px solid rgba(221,177,245,.12);
+}
+
+.emotional .line{
+    font-family:"Caveat",cursive;
+    font-size:34px;
+    line-height:1.45;
+}
+
+.emotional .tiny{
+    font-family:"Playfair Display",serif;
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#bda7c9;
+    margin-bottom:18px;
+}
+
+/* ENDING */
+
+.ending{
+    text-align:center;
+    margin-top:65px;
+}
+
+.ending-heart{
+    font-size:30px;
+    color:#dfa5ff;
+    animation:pulse 2.5s infinite;
+}
+
+.ending p{margin-top:18px}
+
+.final-line{
+    font-size:34px;
+    line-height:1.4;
+    color:#fff;
+}
+
+.signature{
+    margin-top:50px;
+    text-align:right;
+}
+
+.signature small{
+    font-family:"Playfair Display",serif;
+    color:#bca8c5;
+    font-size:12px;
+}
+
+.signature-name{
+    font-family:"Caveat",cursive;
+    font-size:34px;
+    color:#dfa7fa;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+    #letter{padding:45px 14px 80px}
+    .letter-paper{padding:35px 19px 45px;border-radius:22px}
+    .opening-box h1{font-size:62px}
+    .letter-top h2{font-size:44px}
+    .letter-text{font-size:23px;line-height:1.68}
+    .big{font-size:29px}
+    .emotional .line{font-size:31px}
+    .final-line{font-size:31px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="background">
+
+    <div class="moon"></div>
+
+    <div class="lotus one">
+        <svg viewBox="0 0 400 250">
+            <path d="M200 220C125 205 60 160 35 105C110 105 165 145 200 190C235 145 290 105 365 105C340 160 275 205 200 220Z" fill="#e9b8ff"/>
+            <path d="M200 205C135 160 110 90 145 25C185 65 200 125 200 205Z" fill="#f2d7ff"/>
+            <path d="M200 205C265 160 290 90 255 25C215 65 200 125 200 205Z" fill="#d99cff"/>
+        </svg>
+    </div>
+
+    <div class="lotus two">
+        <svg viewBox="0 0 400 250">
+            <path d="M200 220C125 205 60 160 35 105C110 105 165 145 200 190C235 145 290 105 365 105C340 160 275 205 200 220Z" fill="#e9b8ff"/>
+            <path d="M200 205C135 160 110 90 145 25C185 65 200 125 200 205Z" fill="#f2d7ff"/>
+            <path d="M200 205C265 160 290 90 255 25C215 65 200 125 200 205Z" fill="#d99cff"/>
+        </svg>
+    </div>
+
+</div>
+
+
+<section id="opening">
+
+    <div class="opening-box">
+
+        <div class="small-title">
+            A letter that waited for you
+        </div>
+
+        <h1>Sneha</h1>
+
+        <div class="open-heart">♡</div>
+
+        <div class="sub">
+            Some feelings are too beautiful
+            <br>
+            to fit inside a conversation.
+        </div>
+
+        <button class="open-button" onclick="openLetter()">
+            Open my letter
+        </button>
+
+    </div>
+
+</section>
+
+
+<main id="letter">
+
+<div class="letter-paper">
+
+<div class="letter-top">
+
+    <div class="to">
+        To the girl I keep choosing
+    </div>
+
+    <h2>My Love,</h2>
+
+    <div class="divider"></div>
+
+</div>
+
+
+<div class="letter-text">
+
+<p>
+    Sometimes I wonder how a person can become such a large part
+    of another person's world without even being there.
+</p>
+
+<p>
+    You did.
+</p>
+
+<p>
+    Somewhere between our conversations, your laughter, your little
+    habits, the things you tell me, the things you don't, and all
+    those ordinary moments that somehow became important to me,
+    you quietly became someone I cannot imagine my life without.
+</p>
+
+<div class="center">
+    <p class="big italic">
+        If I could trade every beautiful thing I have ever seen,
+        I would gladly give it all away for one simple minute beside you.
+    </p>
+</div>
+
+<p>
+    Just one minute.
+</p>
+
+<p>
+    A minute to hear your voice without a phone between us.
+    A minute to watch you laugh and know that I am the reason for it.
+    A minute to look into your eyes and forget whatever else exists around me.
+</p>
+
+<p>
+    I would want to remember your face exactly as it is in that moment —
+    your eyes, your hair, your lips, your smile, everything that makes you
+    <span class="important">you.</span>
+</p>
+
+<p>
+    But strangely, as much as I love all of those things,
+    they are not what I love most about you.
+</p>
+
+<div class="center">
+    <p class="big">I love your mind.</p>
+</div>
+
+<p>
+    That endlessly surprising place inside you that I keep discovering
+    piece by piece. Your thoughts, your opinions, your strange little ideas,
+    the way you see things differently, the things that make you laugh,
+    the things that hurt you, and the dreams you carry quietly inside yourself.
+</p>
+
+<p>
+    There are parts of you I understand, and there are parts I still don't.
+</p>
+
+<p>
+    And I think that's one of the things I love most.
+</p>
+
+<div class="emotional">
+
+    <div class="tiny">
+        What I hope you always remember
+    </div>
+
+    <div class="line">
+        You are not a story
+        <br>
+        I want to finish reading.
+        <br><br>
+        You are a story
+        <br>
+        I want to keep discovering.
+    </div>
+
+</div>
+
+<p>
+    Every conversation feels like another page. Every new thing I learn
+    about you feels like finding a hidden room in a house I thought I already knew.
+</p>
+
+<p>
+    And somehow, the more I discover, the more I want to know.
+</p>
+
+<p>
+    I don't only want your happiest days. I want to know you on the days
+    when you are quiet. On the days when you don't feel like talking.
+    On the days when everything feels too much.
+</p>
+
+<p>
+    I want to know what makes you afraid, what makes you hopeful,
+    what you secretly wish for, and what you never say out loud.
+</p>
+
+<p>
+    I want to know the person behind the smile.
+</p>
+
+<div class="center">
+
+    <p class="big italic">
+        Because loving someone, to me, isn't simply admiring the beautiful
+        parts of them.
+        <br><br>
+        It is wanting to understand all of them.
+    </p>
+
+</div>
+
+<p>
+    There are moments when I wish distance were something I could simply
+    argue with.
+</p>
+
+<p>
+    Because there are times when all I want is to reach for your hand
+    and realize that you're actually there.
+</p>
+
+<div class="center">
+
+    <p class="big">
+        No screen.
+        <br>
+        No typing.
+        <br>
+        No waiting for a message.
+        <br><br>
+        Just you.
+        <br>
+        And me.
+    </p>
+
+</div>
+
+<p>
+    Sitting beside each other, perhaps saying nothing at all.
+    I think I would be happy even then.
+</p>
+
+<p>
+    Because with the right person, silence doesn't feel empty.
+</p>
+
+<div class="center">
+
+    <p class="big">
+        It feels like home.
+    </p>
+
+</div>
+
+<p>
+    And if someday I get that ordinary minute with you,
+    I don't think I'll ask for anything extraordinary.
+</p>
+
+<p>
+    I won't need some perfect place or some grand occasion.
+    I'll just want you beside me.
+</p>
+
+<p>
+    Maybe I'll look at you for a little too long.
+    Maybe you'll ask me, "What?" And I'll probably smile and say, "Nothing."
+</p>
+
+<p>
+    But the truth will be that I'm trying to memorize the moment.
+</p>
+
+<p>
+    Because I've spent so much time missing you that I think I would
+    want to remember every second of finally having you close.
+</p>
+
+<div class="center">
+
+    <p class="big">
+        Your voice.
+        <br>
+        Your laugh.
+        <br>
+        Your eyes.
+        <br>
+        Your hands.
+        <br>
+        Your smile.
+        <br>
+        Your presence.
+        <br><br>
+        And most of all...
+        <br>
+        <span class="important">you.</span>
+    </p>
+
+</div>
+
+<p>
+    If life gives me the choice between a thousand magnificent moments
+    without you and one imperfect, ordinary moment with you,
+    I already know what I would choose.
+</p>
+
+<div class="emotional">
+
+    <div class="line">
+        I would choose
+        <br>
+        the ordinary moment.
+    </div>
+
+</div>
+
+<p>
+    I would choose the conversation that lasts too long.
+    The laugh that comes at the wrong time.
+    The silence after we've run out of things to say.
+    The little arguments that end with us finding our way back to each other.
+</p>
+
+<p>
+    I would choose all of it.
+</p>
+
+<p>
+    Because I don't want a perfect love story.
+</p>
+
+<div class="center">
+    <p class="big">
+        I want ours.
+    </p>
+</div>
+
+<p>
+    The complicated parts. The beautiful parts. The unexpected parts.
+    The memories we haven't made yet.
+</p>
+
+<p>
+    I don't know what the future has written for us.
+    But I know what I would like to write into it.
+</p>
+
+<p>
+    More mornings where I get to hear your voice.
+    More nights where I don't want the conversation to end.
+    More photographs. More silly arguments. More laughter.
+    More moments where we look at each other and realize how far we've come.
+</p>
+
+<div class="center">
+
+    <p class="big">
+        And someday, hopefully,
+        <br>
+        fewer goodbyes.
+    </p>
+
+</div>
+
+<p>
+    I don't promise that I will always know exactly what to say.
+    I don't promise that I'll always get everything right.
+</p>
+
+<p>
+    But I can promise you this:
+</p>
+
+<div class="emotional">
+
+    <div class="line">
+        I will keep choosing you.
+    </div>
+
+</div>
+
+<p>
+    Not only when everything is easy. Not only when we are happy.
+    But also when things become difficult, when distance feels heavy,
+    when words fail us, and when loving each other requires patience.
+</p>
+
+<p>
+    Because you are not simply someone I fell in love with.
+</p>
+
+<p>
+    You are someone I continue to discover.
+</p>
+
+<p>
+    And perhaps that's why my love for you doesn't feel like something
+    that happened once.
+</p>
+
+<p>
+    It feels like something that happens again and again.
+</p>
+
+<p>
+    Every time you laugh.
+    <br>
+    Every time you say my name.
+    <br>
+    Every time you tell me something you have never told anyone else.
+    <br>
+    Every time I see your face.
+    <br>
+    Every time I realize that, somehow, after everything,
+    <span class="important">
+        you are still the person I want to tell everything to.
+    </span>
+</p>
+
+<p>
+    So if you ever wonder what I want from you,
+    the answer is surprisingly simple.
+</p>
+
+<p>
+    I don't need perfection.
+    <br>
+    I don't need grand promises.
+    <br>
+    I don't need every day to be extraordinary.
+</p>
+
+<p>
+    I just want your presence in my life.
+</p>
+
+<p>
+    I want to keep knowing you.
+    <br>
+    Keep loving you.
+    <br>
+    Keep discovering you.
+</p>
+
+<div class="center">
+
+    <p class="big italic">
+        And if I am lucky enough to spend a lifetime doing that,
+        I think I will still reach the end feeling as though
+        I have only just begun.
+    </p>
+
+</div>
+
+<div class="emotional">
+
+    <div class="line">
+        Because you are not someone I want to have only for a moment.
+        <br><br>
+        You are someone I want to keep choosing
+        for all the moments that come after it.
+    </div>
+
+</div>
+
+<div class="ending">
+
+    <div class="ending-heart">
+        ♡
+    </div>
+
+    <p class="final-line">
+        If I had to choose again...
+        <br>
+        I would still choose you.
+    </p>
+
+    <p class="final-line">
+        Again.
+        <br>
+        And again.
+        <br>
+        And again.
+    </p>
+
+</div>
+
+<div class="signature">
+
+    <small>
+        With all my love,
+    </small>
+
+    <div class="signature-name">
+        Anand ♡
+    </div>
+
+</div>
+
+</div>
+</div>
+</main>
+
+
+<script>
+
+function openLetter(){
+
+    const opening =
+        document.getElementById("opening");
+
+    const letter =
+        document.getElementById("letter");
+
+    opening.style.opacity="0";
+
+    opening.style.transform="scale(.96)";
+
+    setTimeout(function(){
+
+        opening.style.display="none";
+
+        letter.style.display="block";
+
+        setTimeout(function(){
+
+            letter.style.opacity="1";
+
+            letter.style.transform="translateY(0)";
+
+        },100);
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    },1000);
+}
+
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className="heart";
+
+    const hearts=[
+        "♡",
+        "♥",
+        "♡",
+        "✦"
+    ];
+
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random()*hearts.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random()*100+"vw";
+
+    heart.style.setProperty(
+        "--drift",
+        ((Math.random()-.5)*140)+"px"
+    );
+
+    heart.style.fontSize =
+        (10+Math.random()*17)+"px";
+
+    heart.style.animationDuration =
+        (6+Math.random()*7)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function(){
+        heart.remove();
+    },14000);
+}
+
+
+setInterval(createHeart,900);
+
+
+const background =
+    document.querySelector(".background");
+
+
+for(let i=0;i<35;i++){
+
+    const star =
+        document.createElement("div");
+
+    star.className="star";
+
+    star.style.left =
+        Math.random()*100+"%";
+
+    star.style.top =
+        Math.random()*100+"%";
+
+    star.style.animationDelay =
+        Math.random()*4+"s";
+
+    background.appendChild(star);
+}
+
+</script>
+
+</body>
+</html>
